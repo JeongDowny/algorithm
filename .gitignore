@@ -1,0 +1,4 @@
+*
+!*.cpp
+!.gitignore
+test.cpp
