@@ -2,4 +2,5 @@
 !*.cpp
 !.gitignore
 !*.md
+!docs
 test.cpp
