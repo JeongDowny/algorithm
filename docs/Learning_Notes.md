@@ -11,7 +11,8 @@
 
 **4중포문** 을 사용한 기존코드
 
-'''cpp
+<pre>
+<code>
 void slice(int n, vector<vector<int>> paper) {
     for(int i=0; i<n; i++) {
         for(int j=0; j<n; j++) {
@@ -33,11 +34,13 @@ void slice(int n, vector<vector<int>> paper) {
             }
         }
     }
-'''
+</code>
+</pre>
 
 수정한 코드
 
-'''cpp
+<pre>
+<code>
 int newSize = n/3;
     for(int i=0; i<3; ++i) {
         for(int j=0; j<3; ++j) {
@@ -45,7 +48,8 @@ int newSize = n/3;
         }
     }
 }
-'''
+</code>
+</pre>
 
 * **메모리/시간초과 관련**
 
@@ -53,19 +57,13 @@ int newSize = n/3;
 
 기존코드
 
-'''cpp
-void slice(int n, vector<vector<int>> paper, int x, int y) {
-    ...
-}
-'''
+'
+void slice(int n, vector<vector<int>> paper, int x, int y)
+'
 
 수정코드
 
-'''cpp
-void slice(int n, const vector<vector<int>> &paper, int x, int y) {
-    ...
-}
-'''
+'void slice(int n, const vector<vector<int>> &paper, int x, int y)'
 
 * **느낀점**
 
