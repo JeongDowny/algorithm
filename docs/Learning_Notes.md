@@ -52,18 +52,23 @@ int newSize = n/3;
 </pre>
 
 * **메모리/시간초과 관련**
-
 로직 구성을 통해 예시와 동일한 결과를 얻을 수 있었지만 제출 결과는 시간초과였다. 문제는 함수 인자로 이중벡터 변수인 paper를 객체 그대로 넘겨주는데 있었다. 함수 인자로 받아올 때 복사해오기 떄문에 재귀함수 하나가 실행할 때 마다 paper가 새로 생성되는 것 이었다. 이를 해결하기 위해 함수인자을 주소값으로 수정하였고 통과했다.
 
 기존코드
 
-'
+<pre>
+<code>
 void slice(int n, vector<vector<int>> paper, int x, int y)
-'
+</code>
+</pre>
 
 수정코드
 
-'void slice(int n, const vector<vector<int>> &paper, int x, int y)'
+<pre>
+<code>
+void slice(int n, const vector<vector<int>> &paper, int x, int y)
+</code>
+</pre>
 
 * **느낀점**
 
