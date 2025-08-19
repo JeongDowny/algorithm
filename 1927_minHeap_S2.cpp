@@ -18,6 +18,7 @@ struct Minheap{
     bool isempty() {
         return heapCount==0;
     }
+
     void push(int data) {
         heapCount++;
         if(heap.size() <= heapCount) {
@@ -26,12 +27,18 @@ struct Minheap{
         else heap[heapCount] = data;
         int child = heapCount;
         int parent = child / 2;
-        while(child>1 && heap[parent]>heap[child]) {
-            swap(heap[parent], heap[child]);
-            child = parent;
-            parent = child / 2;
+        while(child>1) {
+            if(heap[parent]>heap[child]) {
+                swap(heap[parent], heap[child]);
+                child = parent;
+                parent = child / 2;
+            }
+            else {
+                break;
+            }
         }
     }
+
     int pop() {
         if(isempty()) {
             return 0;
@@ -42,15 +49,18 @@ struct Minheap{
 
         int parent = 1;
         int child = parent * 2;
-        if(child + 1 <= heapCount) {
-            if(!(heap[child] > heap[child+1])) child++;
-        }
-        while(child <= heapCount && heap[parent] > heap[child]) {
-            swap(heap[parent], heap[child]);
-            parent = child;
-            child = child * 2;
-            if(child+1 <= heapCount) {
-                if(heap[child] > heap[child+1]) child++;
+
+        while(child <= heapCount) {
+            if(heap[child] > heap[child + 1]){
+                child++;
+            }
+            if(heap[parent] > heap[child]) {
+                swap(heap[parent], heap[child]);
+                parent = child;
+                child = parent * 2;
+            }
+            else {
+                break;
             }
         }
         return temp;
@@ -58,6 +68,9 @@ struct Minheap{
 };
 
 int main() {
+    cin.tie(NULL);
+    ios_base::sync_with_stdio(false);
+
     Minheap heap;
     heap.init();
     int n;

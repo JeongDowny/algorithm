@@ -1,6 +1,7 @@
 *
+!*/
 !*.cpp
-!.gitignore
+base.cpp
 !*.md
-!docs
-test.cpp
+!docs/
+!*.java
