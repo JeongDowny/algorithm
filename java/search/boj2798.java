@@ -1,3 +1,5 @@
+package java.search;
+
 import java.util.*;
 import java.io.*;
 
